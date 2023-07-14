@@ -1,20 +1,27 @@
 // import './App.css';
 
+import Container from './Container';
+import Counter from './Counter';
 import Myheader from './MyHeader';
 
 function App() {
-  let name = "지찬";
 
-  const number = 5;
+  const counterProps = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+    e: 5,
+    initialValue: 5,
+  }
 
   return (
-    <div className="App">
-      <Myheader />
-      <h2>안녕 리액트 {name}</h2>
-      <b id='bold_text'>
-        {number}는 : {number % 2 === 0 ? "짝수" : "홀수"}
-      </b>
-    </div>
+    <Container>
+      <div>
+        <Myheader />
+        <Counter {...counterProps} />
+      </div>
+    </Container>
   );
 }
 

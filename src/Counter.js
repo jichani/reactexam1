@@ -1,9 +1,26 @@
-const Counter = () => {
+import { useState } from "react";
+import OddEvenResult from "./OddEvenResult";
+
+const Counter = ({ initialValue }) => {
+
+  // console.log(props)
+
+  const [count, setCount] = useState(initialValue);
+
+  const onIncrease = () => {
+    setCount(count + 1);
+  };
+
+  const onDecrease = () => {
+    setCount(count - 1);
+  }
+
   return (
     <div>
-      <h2>0</h2>
-      <button>+</button>
-      <button>-</button>
+      <h2>{count}</h2>
+      <button onClick={onIncrease}>+</button>
+      <button onClick={onDecrease}>-</button>
+      <OddEvenResult count={count} />
     </div>
   );
 };
